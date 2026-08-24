@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sage-data-elliptic-curves"
+version = "0.8.1"
+description = "Elliptic-curve databases for SageMath and other Python software"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "GPL-2.0-or-later"
+license-files = ["LICENSE", "DATA_LICENSES.md"]
+authors = [
+  {name = "SageMath Developers"},
+]
+keywords = ["elliptic curves", "Cremona database", "SageMath"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Scientific/Engineering :: Mathematics",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.urls]
+Homepage = "https://github.com/cxzhong/sage-data-elliptic-curves"
+Repository = "https://github.com/cxzhong/sage-data-elliptic-curves"
+Issues = "https://github.com/cxzhong/sage-data-elliptic-curves/issues"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+sage_data_elliptic_curves = [
+  "data/cremona/*.db",
+  "data/ellcurves/rank*",
+]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]

@@ -81,5 +81,9 @@ python -m build
 
 After the data terms are confirmed, publishing is performed only by the
 `Release` GitHub Actions workflow when a GitHub Release is published.  The
-workflow builds and checks both distributions, attaches them to that Release,
-and uses PyPI Trusted Publishing through the protected `pypi` environment.
+workflow checks the generated databases, builds and validates both
+distributions, smoke-tests the wheel in a clean environment, attaches the
+artifacts to that Release, and uses PyPI Trusted Publishing through the
+protected `pypi` environment.  The Release tag must be `0.8.1` or `v0.8.1`.
+Configure the repository, `release.yml` workflow, and `pypi` environment as a
+PyPI Trusted Publisher before publishing the first Release.
